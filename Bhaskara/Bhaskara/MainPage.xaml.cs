@@ -52,7 +52,7 @@
                 double raiz = (-b) / (2 * a);
                 lbResultado.Text = "Existe apenas uma raiz real:";
                 lbRaiz1.Text = String.Format("X1 = {0:f2}", raiz);
-                lbRaiz2.Text = String.Format("X2 = {0:f2}", 0.00);
+                lbRaiz2.Text = String.Format("");
             }
             else {
                 double raiz1 = (-b + Math.Sqrt(delta)) / (2 * a);
