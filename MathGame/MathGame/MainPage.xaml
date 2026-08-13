@@ -4,7 +4,45 @@
              x:Class="MathGame.MainPage">
 
     <ScrollView>
-       
+
+        <VerticalStackLayout Padding="30,0" Spacing="25">
+
+            <Label Text="Desafio Matemático" FontSize="32" HorizontalOptions="Center" VerticalOptions="Start"/>
+
+            <Image Source="mathlogo.png" Aspect="Center" HorizontalOptions="Center" VerticalOptions="Center"/>
+
+            <Label Text="Resolva o dasafio matemático abaixo:" FontSize="18" HorizontalOptions="Center" VerticalOptions="Start"/>
+
+            <HorizontalStackLayout Spacing="10" HorizontalOptions="Center">
+
+                <Label x:Name="lb1" FontSize="30" Text="5"/>
+                <Label x:Name="lb2" FontSize="30" Text="*"/>
+                <Label x:Name="lb3" FontSize="30" Text="5"/>
+  
+            </HorizontalStackLayout>
+
+            <Entry x:Name="txR" Placeholder="Digite a resposta aqui..." Keyboard="Numeric"/>
+
+            <Button x:Name="btnOk" Text="Conferir Resultado" Clicked="btnOk_Clicked"/>
+
+            <Image x:Name="imR" Source="question.png" Aspect="Center" HorizontalOptions="Center" VerticalOptions="Center"/>
+
+
+            <HorizontalStackLayout Spacing="10" HorizontalOptions="Center">
+
+                <Label x:Name="lbAcertou" FontSize="30" Text="Acertos: 0"/>
+                <Label x:Name="lbErrou" FontSize="30" Text="Erros: 0"/>
+
+            </HorizontalStackLayout>
+
+
+
+
+        </VerticalStackLayout>
+                             
+                             
+            
+            
         
         
     </ScrollView>
