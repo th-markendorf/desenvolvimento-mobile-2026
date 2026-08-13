@@ -1,0 +1,48 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Bhaskara.MainPage">
+
+    <ScrollView>
+
+        <VerticalStackLayout Spacing="30">
+            <Image Source="bhaskaraf.png" Aspect="Center"/>
+
+            <HorizontalStackLayout Spacing="15" Padding="10">
+                <Label Text="Digite os valores para o coeficiente quadrático (a): " FontSize="15"/>
+                <Entry x:Name="A" Placeholder="a" Keyboard="Numeric"/>
+            </HorizontalStackLayout>
+
+            <HorizontalStackLayout Spacing="15" Padding="10">
+                <Label Text="Digite os valores para o coeficiente linear (b): " FontSize="15"/>
+                <Entry x:Name="B" Placeholder="b" Keyboard="Numeric"/>
+            </HorizontalStackLayout>
+
+            <HorizontalStackLayout Spacing="15" Padding="10">
+                <Label Text="Digite os valores para a constante (c): " FontSize="15"/>
+                <Entry x:Name="C" Placeholder="c" Keyboard="Numeric"/>
+            </HorizontalStackLayout>
+
+            <Button x:Name="btnCalcularRaizes" Text="Calcular Raízes" HorizontalOptions="Center" WidthRequest="350" Clicked="btnCalcularRaizes_Clicked"/>
+
+            <Label x:Name="lbDelta" Text="0,00" FontSize="20" HorizontalOptions="Center" FontAttributes="Bold" TextColor="Red"/>
+
+            <Label x:Name="lbResultado" Text="" FontSize="20" HorizontalOptions="Center"  FontAttributes="Bold" TextColor="Red"/>
+
+            <HorizontalStackLayout Spacing="10" HorizontalOptions="Center" Padding="10">
+                
+               
+                
+                <Label x:Name="lbRaiz1" Text="0,00" FontSize="20"
+                       FontAttributes="Bold" TextColor="Red"/>
+                
+                <Label x:Name="lbRaiz2" Text="0,00" FontSize="20"
+                       FontAttributes="Bold" TextColor="Red"/>
+
+            </HorizontalStackLayout>
+
+        </VerticalStackLayout>
+
+    </ScrollView>
+
+</ContentPage>
