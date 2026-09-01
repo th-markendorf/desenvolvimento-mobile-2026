@@ -19,7 +19,7 @@
         {
             InitializeComponent();
 
-            GerarJogo(); // iniciar o jogo primeira vez apos inicializar os componentes
+            GerarJogo(0); // iniciar o jogo primeira vez apos inicializar os componentes
         }
 
         private async void btnOk_Clicked(object sender, EventArgs e)
@@ -58,15 +58,53 @@
             await Task.Delay(2000);
             imR.Source = "question.png";
 
+
+            //pega a dificuldade para passar no parametro da funcao
+            int dificuldade = pickerDificuldade.SelectedIndex;
+
+            //atribui dificuldade 1 se nenhuma for selecionada
+            if(dificuldade == -1)
+            {
+                dificuldade = 0;
+            }
+
             //gera um novo jogo
-            GerarJogo();
+            GerarJogo(dificuldade);
         }
 
-        public void GerarJogo()
+
+        private void pickerDificuldade_SelectedIndexChanged(object sender, EventArgs e)
         {
-            iLB1 = rand.Next(1, 10);
+            int dificuldade = pickerDificuldade.SelectedIndex;
+
+            if  (dificuldade != -1)
+            {
+                GerarJogo(dificuldade);
+            }
+        }
+
+        public void GerarJogo(int nivelDificuldade)
+        {
+            switch (nivelDificuldade)
+            {
+                case 0:
+                    iLB1 = rand.Next(1, 10);
+                    iLB3 = rand.Next(1, 10);
+                    break;
+
+                case 1:
+                    iLB1 = rand.Next(1, 50);
+                    iLB3 = rand.Next(1, 50);
+                    break;
+
+                case 2:
+                    iLB1 = rand.Next(1, 100);
+                    iLB3 = rand.Next(1, 100);
+                    break;
+
+            }
+
             iLB2 = rand.Next(1, 5);
-            iLB3 = rand.Next(1, 10);
 
             lb1.Text = Convert.ToString(iLB1);
             lb3.Text = Convert.ToString(iLB3);
@@ -84,7 +122,7 @@
                     break;
 
                 case 3:
-                    fR = (iLB1 + iLB3);
+                    fR = (iLB1 * iLB3);
                     lb2.Text = "*";
                     break;
 
@@ -96,8 +134,5 @@
 
             txR.Text = "";
         }
-
-
-
     }
 }

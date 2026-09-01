@@ -11,6 +11,20 @@
 
             <Image Source="mathlogo.png" Aspect="Center" HorizontalOptions="Center" VerticalOptions="Center"/>
 
+            <Label Text="Selecione a dificuldade:" FontSize="18" HorizontalOptions="Center" VerticalOptions="Start"/>
+            
+            <Picker x:Name="pickerDificuldade" Title="Escolha o nível" HorizontalOptions="Center" WidthRequest="250" SelectedIndexChanged="pickerDificuldade_SelectedIndexChanged">
+                <Picker.ItemsSource>
+                    <x:Array Type="{x:Type x:String}">
+                        <x:String>Fácil</x:String>
+                        <x:String>Médio</x:String>
+                        <x:String>Difícil</x:String>
+                    </x:Array>
+                </Picker.ItemsSource>
+            </Picker>
+
+
+
             <Label Text="Resolva o dasafio matemático abaixo:" FontSize="18" HorizontalOptions="Center" VerticalOptions="Start"/>
 
             <HorizontalStackLayout Spacing="10" HorizontalOptions="Center">
