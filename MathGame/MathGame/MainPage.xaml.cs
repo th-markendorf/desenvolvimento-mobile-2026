@@ -11,6 +11,11 @@
         int iAcertouCount = 0;
         int iErrouCount = 0;
 
+        int iPontuacaoCount = 0;
+        int iBonusTempoCount = 0;
+
+        int iRodadaCount = 1;
+
         Random rand = new Random();
 
 
@@ -33,21 +38,46 @@
             } catch (Exception ex){
 
                 await DisplayAlertAsync("ERRO", "Digite um numero valido!", "OK");
+
                 return;
             }
 
+            //acertou
             if (fResult == fR)
             {
                 iAcertouCount++;
+                int iPontuacao = 5;
+
+                int dificuldadeAtual = pickerDificuldade.SelectedIndex;
+
+
+                //bonus de pontos por dificuldade
+                switch (dificuldadeAtual)
+                {
+                    case 1:
+                        iPontuacao += 5;
+                        break;
+
+                    case 2:
+                        iPontuacao += 10;
+                        break;
+                }
 
                 lbAcertou.Text = $"Acertos: {iAcertouCount}";
 
+                iPontuacaoCount += iPontuacao;
+
+                lbPontuacaoFinal.Text = $"Pontuação Final: {iPontuacaoCount}";
+
                 imR.Source = "win.png";
 
+
+
             }
+            //errou
             else
             {
-                iErrouCount++;
+                iErrouCount++; 
 
                 lbErrou.Text = $"Erros: {iErrouCount}";
 
@@ -58,18 +88,41 @@
             await Task.Delay(2000);
             imR.Source = "question.png";
 
+            iRodadaCount++; //aumenta o contador da rodada atual
 
-            //pega a dificuldade para passar no parametro da funcao
-            int dificuldade = pickerDificuldade.SelectedIndex;
-
-            //atribui dificuldade 1 se nenhuma for selecionada
-            if(dificuldade == -1)
+            if (iRodadaCount > 10)
             {
-                dificuldade = 0;
+                await DisplayAlertAsync("Fim de Jogo!", $"Você concluiu as 10 rodadas!" +
+                    $"\nPontuação Final: {iPontuacaoCount}" +
+                    $"\nAcertos: {iAcertouCount}" +
+                    $"\nErros: {iErrouCount}", "Jogar Novamente");
+
+                iRodadaCount = 1;
+                iAcertouCount = 0;
+                iErrouCount = 0;
+                iPontuacaoCount = 0;
+
+                lbAcertou.Text = $"Acertos: {iAcertouCount}";
+                lbErrou.Text = $"Erros: {iErrouCount}";
+                lbPontuacaoFinal.Text = $"Pontuação Final: {iPontuacaoCount}";
+
+            }
+            else
+            {
+                //pega a dificuldade para passar no parametro da funcao
+                int dificuldade = pickerDificuldade.SelectedIndex;
+
+                //atribui dificuldade 1 se nenhuma for selecionada
+                if (dificuldade == -1)
+                {
+                    dificuldade = 0;
+                }
+
+                //gera um novo jogo
+                GerarJogo(dificuldade);
+
             }
 
-            //gera um novo jogo
-            GerarJogo(dificuldade);
         }
 
 

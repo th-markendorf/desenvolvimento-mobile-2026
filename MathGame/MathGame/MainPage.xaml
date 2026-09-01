@@ -49,6 +49,10 @@
 
             </HorizontalStackLayout>
 
+            <VerticalStackLayout HorizontalOptions="Center" VerticalOptions="Center" Padding="30,0" Spacing="5">
+                <Label x:Name="lbPontuacaoFinal" FontSize="30" Text="Pontuação Final: 0"/>
+            </VerticalStackLayout>
+            
 
 
 
