@@ -27,6 +27,11 @@
 
             <Label Text="Resolva o dasafio matemático abaixo:" FontSize="18" HorizontalOptions="Center" VerticalOptions="Start"/>
 
+            <Label x:Name="lbRodada" Text="Rodada 1" FontSize="18" HorizontalOptions="Center" VerticalOptions="Start"/>
+
+            <Label x:Name="lbTimer" Text="Tempo: 30s" FontSize="24" FontAttributes="Bold" HorizontalOptions="Center" TextColor="White" Margin="0, 0, 0, 20" />
+
+
             <HorizontalStackLayout Spacing="10" HorizontalOptions="Center">
 
                 <Label x:Name="lb1" FontSize="30" Text="5"/>
